@@ -11,15 +11,15 @@ const Header = () => {
       {/* Logo */}
       <div className="flex items-center gap-2">
         <UserCircleIcon className="w-12 h-12 text-purple-600" />
-        <h1 className="text-2xl font-bold text-purple-600">Profile App</h1>
+        <h1 className="text-lg sm:text-2xl font-bold text-purple-600">Profile App</h1>
       </div>
 
       {/* Navigation */}
       <nav className="space-x-4">
-        <Link to="/" className="text-lg text-gray-700 hover:text-purple-600">Home</Link>
-        <Link to="/login" className="text-lg text-gray-700 hover:text-purple-600">Login</Link>
-        <Link to="/profile" className="text-lg text-gray-700 hover:text-purple-600">Profile</Link>
-        <Link to="/logout" className="text-lg text-gray-700 hover:text-purple-600">Logout</Link>
+        <Link to="/" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Home</Link>
+        <Link to="/login" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Login</Link>
+        <Link to="/profile" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Profile</Link>
+        <Link to="/logout" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Logout</Link>
       </nav>
     </header>
   )
