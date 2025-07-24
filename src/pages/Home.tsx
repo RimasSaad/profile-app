@@ -17,11 +17,11 @@ const Home = () => {
         {/* Welcome message */}
         <h2 className="text-3xl font-bold text-gray-800">Welcome to Profile App</h2>
         <p className="mt-2 text-gray-600 text-lg">
-          Manage your profile easily and effortlessly.
+          Manage your profiles easily and effortlessly.
         </p>
       </section>
 
-      {/* Buttom (Features) Section */}
+      {/* Bottom (Features) Section */}
       <section className="grid gap-6 sm:grid-cols-2">
         {/* Card 1 - Create Profile - UI for now, page to be added later */}
         <div className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">

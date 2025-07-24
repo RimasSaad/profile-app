@@ -1,28 +1,57 @@
 // Header.tsx
-// This component renders the header of the application, which includes navigation links for all pages.
+// This component renders a responsive header with navigation links and a mobile menu toggle.
 
-import { Link } from 'react-router-dom'
-import { UserCircleIcon } from '@heroicons/react/24/solid'; // or use /outline for a lighter version
-
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { UserCircleIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
+  // State to track mobile menu open/close
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle menu visibility
+  const toggleMenu = () => setIsMobileMenuOpen(prev => !prev);
+
   return (
-    <header className="bg-violet-300 shadow-md py-6 px-6 flex justify-between items-center">
-      {/* Logo */}
-      <div className="flex items-center gap-2">
-        <UserCircleIcon className="w-12 h-12 text-purple-600" />
-        <h1 className="text-lg sm:text-2xl font-bold text-purple-600">Profile App</h1>
+    <header className="bg-violet-300 shadow-md px-6 py-4">
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
+
+        {/* Logo Section */}
+        <div className="flex items-center gap-2">
+          <UserCircleIcon className="w-8 h-8 text-purple-600" />
+          <h1 className="text-xl font-bold text-purple-600">Profile App</h1>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden sm:flex gap-6">
+          <Link to="/" className="text-gray-700 hover:text-purple-600">Home</Link>
+          <Link to="/login" className="text-gray-700 hover:text-purple-600">Login</Link>
+          <Link to="/profile" className="text-gray-700 hover:text-purple-600">Profile</Link>
+          <Link to="/logout" className="text-gray-700 hover:text-purple-600">Logout</Link>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button className="sm:hidden" onClick={toggleMenu}>
+          {isMobileMenuOpen ? (
+            <XMarkIcon className="w-6 h-6 text-purple-700" />
+          ) : (
+            <Bars3Icon className="w-6 h-6 text-purple-700" />
+          )}
+        </button>
       </div>
 
-      {/* Navigation */}
-      <nav className="space-x-4">
-        <Link to="/" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Home</Link>
-        <Link to="/login" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Login</Link>
-        <Link to="/profile" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Profile</Link>
-        <Link to="/logout" className="text-base sm:text-lg text-gray-700 hover:text-purple-600">Logout</Link>
-      </nav>
-    </header>
-  )
-}
+     {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden mt-3 px-6 space-y-2 flex flex-col items-center text-center">
+          <Link to="/" className="block text-gray-700 hover:text-purple-600" onClick={toggleMenu}>Home</Link>
+          <Link to="/login" className="block text-gray-700 hover:text-purple-600" onClick={toggleMenu}>Login</Link>
+          <Link to="/profile" className="block text-gray-700 hover:text-purple-600" onClick={toggleMenu}>Profile</Link>
+          <Link to="/logout" className="block text-gray-700 hover:text-purple-600" onClick={toggleMenu}>Logout</Link>
+        </div>
+      )}
 
-export default Header
+    </header>
+  );
+};
+
+export default Header;
