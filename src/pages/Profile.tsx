@@ -1,7 +1,7 @@
 // Profile.tsx
 // This version loads and saves profile data to localStorage.
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 import { profileData } from '../data/mockData'
 
